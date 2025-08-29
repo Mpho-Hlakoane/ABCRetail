@@ -1,0 +1,24 @@
+﻿@model ABCRetail.Models.CustomerProductEntity
+
+<h2>Add Customer & Product</h2>
+
+<form method="post" asp-action="Create">
+    <div class="mb-3">
+        <label>Customer Name</label>
+        <input asp-for="CustomerName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" type="email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Product Name</label>
+        <input asp-for="ProductName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Product Category</label>
+        <input asp-for="ProductCategory" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

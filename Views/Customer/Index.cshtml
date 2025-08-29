@@ -1,0 +1,39 @@
+﻿@model List<ABCRetail.Models.CustomerProductEntity>
+
+@{
+    ViewData["Title"] = "Customers & Products";
+}
+
+<h2>Customers & Products</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add New</a>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerName</td>
+            <td>@item.Email</td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductCategory</td>
+            <td>
+                <a asp-action="Edit" asp-route-rowKey="@item.RowKey" class="btn btn-sm btn-warning">Edit</a>
+                <form asp-action="Delete" asp-route-rowKey="@item.RowKey" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

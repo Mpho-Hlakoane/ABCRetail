@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Upload Product Image";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="file" class="form-label">Select Product Image</label>
+        <input type="file" name="file" id="file" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-success">Upload</button>
+    <a asp-action="Gallery" class="btn btn-secondary ms-2">Back to Gallery</a>
+</form>
+
+@if (TempData["UploadMessage"] != null)
+{
+    <div class="alert alert-info mt-3">
+        @TempData["UploadMessage"]
+    </div>
+}

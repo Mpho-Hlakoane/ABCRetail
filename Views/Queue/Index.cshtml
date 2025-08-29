@@ -1,0 +1,29 @@
+﻿@model List<string>
+
+<h2>Queue Messages</h2>
+
+<form asp-action="Send" method="post">
+    <div class="mb-3">
+        <input type="text" name="message" class="form-control" placeholder="Enter message..." required />
+    </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
+<hr />
+
+<h3>Messages in Queue</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var msg in Model)
+        {
+            <tr>
+                <td>@msg</td>
+            </tr>
+        }
+    </tbody>
+</table>

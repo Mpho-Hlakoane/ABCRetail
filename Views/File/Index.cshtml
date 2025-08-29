@@ -1,0 +1,35 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Log Files";
+}
+
+<h2>Uploaded Log Files</h2>
+
+<a asp-action="Upload" class="btn btn-primary mb-2">Upload New File</a>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>File Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var file in Model)
+        {
+            <tr>
+                <td>@file</td>
+            </tr>
+        }
+    </tbody>
+</table>
